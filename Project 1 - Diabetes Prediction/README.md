@@ -85,6 +85,4 @@ else:
 ## Conclusion
 This project demonstrates a **machine learning-based approach** to predicting diabetes using **SVM classification**. The model achieves a **good accuracy** and can be further enhanced with better feature engineering and hyperparameter tuning.
 
----
-Developed by: [Your Name]
 
