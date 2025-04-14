@@ -1,101 +1,45 @@
-
----
+Here's a professional `README.md` file for your GitHub repository:
 
 ```markdown
-# Sonar Rock vs Mine Classification
+# Sonar Rock vs Mine Prediction using Logistic Regression
 
-This project implements a classification model using **Logistic Regression** to differentiate between sonar signals bounced off **metal cylinders (mines)** and **rocks**. The dataset used is the [Sonar Dataset](https://archive.ics.uci.edu/ml/datasets/connectionist+bench+sonar+mines+vs+rocks) from the UCI Machine Learning Repository.
+This project demonstrates a machine learning model that classifies sonar signals as either reflected from a **Rock (R)** or a **Mine (M)** using Logistic Regression.
 
-## 📁 Dataset Information
+## Table of Contents
+- [Overview](#overview)
+- [Dataset](#dataset)
+- [Technical Approach](#technical-approach)
+- [Results](#results)
 
-Each data sample contains **60 numerical features** representing the energy of a sonar signal at different frequencies. The last column is a label:
-- `M` = Mine
-- `R` = Rock
+## Overview
+The goal is to build a binary classifier that can distinguish between sonar signals bounced off cylindrical metal objects (mines) and those bounced off rocks. This has applications in naval mine detection systems.
 
-### Dataset Summary:
-- Rows: 208
-- Columns: 61 (60 features + 1 label)
-- Balanced data with 111 Mines and 97 Rocks
+## Dataset
+- Source: [Sonar, Mines vs Rocks Dataset](https://archive.ics.uci.edu/ml/datasets/Connectionist+Bench+(Sonar,+Mines+vs.+Rocks))
+- 208 samples (97 Rocks, 111 Mines)
+- 60 numerical features representing energy in different frequency bands
+- 1 target variable (R or M)
 
-## 🔧 Technologies Used
+## Technical Approach
+1. **Data Processing**:
+   - Loaded and analyzed dataset statistics
+   - Separated features (60 frequency bands) and labels
+   - Split data into training (90%) and test sets (10%) with stratification
 
-- Python
-- NumPy
-- Pandas
-- Scikit-learn
+2. **Model Training**:
+   - Used Scikit-learn's Logistic Regression
+   - Default hyperparameters (C=1.0, L2 regularization)
 
-## 🚀 Workflow
+3. **Evaluation**:
+   - Training Accuracy: 83.42%
+   - Test Accuracy: 76.19%
 
-### 1. Import Dependencies
-```python
-import numpy as np
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
-```
-
-### 2. Load and Explore Data
-```python
-data = pd.read_csv('/content/Sonar data.csv', header=None)
-```
-
-- Shape: `(208, 61)`
-- Target column: `60`
-
-### 3. Data Preparation
-- Features: `X = data.drop(columns=60)`
-- Labels: `Y = data[60]`
-- Train-Test Split: `90%` train, `10%` test
-
-### 4. Model Training
-```python
-model = LogisticRegression()
-model.fit(X_train, Y_train)
-```
-
-### 5. Model Evaluation
-```python
-training_accuracy = accuracy_score(model.predict(X_train), Y_train)
-test_accuracy = accuracy_score(model.predict(X_test), Y_test)
-```
-
-- Training Accuracy: ~83%
-- Testing Accuracy: ~76%
-
-### 6. Predictive System
-You can input new sonar signal readings and get predictions like:
-```python
-input_data = (0.0374, 0.0586, ..., 0.0126)
-```
-
-## 📈 Results
-
-| Metric            | Score   |
-|-------------------|---------|
-| Training Accuracy | ~83.4%  |
-| Testing Accuracy  | ~76.2%  |
-
-## 🧪 Future Improvements
-
+## Results
+The model shows decent performance but could benefit from:
+- Feature engineering/selection
 - Hyperparameter tuning
-- Cross-validation
-- Try more complex models: SVM, Random Forest, etc.
-- Build a frontend to interact with predictions
+- Trying more complex models
 
-## 📌 How to Run
 
-1. Clone the repository
-2. Install dependencies
-3. Run the Jupyter Notebook or Python script
 
-## 🤝 Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
-
-## 📜 License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-```
-
----
